@@ -1,2 +1,2 @@
 # SRResCycGAN
-The code will be realised soon.
+The code will be released soon.
