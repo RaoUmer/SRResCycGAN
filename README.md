@@ -48,12 +48,12 @@ python test_srrescgan.py
 ## SRResCycGAN Architecture
 #### Overall Representative diagram
 <p align="center">
-  <img height="300" src="figs/srrescycgan.png">
+  <img height="200" src="figs/srrescycgan.png">
 </p>
 
 ## Quantitative Results
 <p align="center">
-  <img height="300" src="figs/res_quant_comparison.png">
+  <img height="250" src="figs/res_quant_comparison.png">
 </p>
 
 #### The AIM2020 Real Image SR Challenge Results (x4)
@@ -85,7 +85,7 @@ python test_srrescgan.py
 ### DIV2K Validation-set (100 images)
 Here are the SR resutls comparison of our method on the DIV2K validation-set images.
 <p align="center">
-  <img height="400" src="figs/div2k_res_val.png">
+  <img height="300" src="figs/div2k_res_val.png">
 </p>
 
 ### Real-Image SR Challenge dataset images ([Track-3](https://data.vision.ee.ethz.ch/cvl/aim20/))
