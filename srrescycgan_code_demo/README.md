@@ -6,7 +6,7 @@
 	- cv2 [4.1.1] 
 
 - Testing:
-	- Run file named "test_srrescycgan.py" to produce SR results for Efficient SR challange
+	- Run file named "test_srrescycgan.py" to produce SR results for the AIM2020 Real-Image SR challange (x4).
 - Contained Directories information: 
 	- models: SRResCycGAN Network structure.
 	- modules: Supporting functions for the model.
