@@ -10,10 +10,10 @@ Recent deep learning based single image super-resolution (SISR) methods mostly t
 #### Pre-trained Models
 | Datasets|[SRResCycGAN](https://github.com/RaoUmer/SRResCycGAN)|
 |---|:---:|
-|NTIRE2020 RWSR|Sensor noise (&#x03C3; = 8)](https://drive.google.com/file/d/1-N05dWhnA6om16D1VoPASGB9MiTMjdgB/view?usp=sharing)|
-|NTIRE2020 RWSR|JPEG compression (quality=30)](https://drive.google.com/file/d/1AJqEm9lfrzkhJf24_ToEOi9iQUpUu2kn/view?usp=sharing)|
-|NTIRE2020 RWSR|Unknown corruptions](https://drive.google.com/file/d/1tPy1LwzRT2LUM2-X3BhGWo4C3Dii1gmV/view?usp=sharing)|
-|AIM2020 RISR|Real image corruptions](https://drive.google.com/file/d/1NAZjl6UDkcd_BnxfXmwF5QB-uHiJidnA/view?usp=sharing)|
+|NTIRE2020 RWSR|[Sensor noise (&#x03C3; = 8)](https://drive.google.com/file/d/1-N05dWhnA6om16D1VoPASGB9MiTMjdgB/view?usp=sharing)|
+|NTIRE2020 RWSR|[JPEG compression (quality=30)](https://drive.google.com/file/d/1AJqEm9lfrzkhJf24_ToEOi9iQUpUu2kn/view?usp=sharing)|
+|NTIRE2020 RWSR|[Unknown corruptions](https://drive.google.com/file/d/1tPy1LwzRT2LUM2-X3BhGWo4C3Dii1gmV/view?usp=sharing)|
+|AIM2020 RISR|[Real image corruptions](https://drive.google.com/file/d/1NAZjl6UDkcd_BnxfXmwF5QB-uHiJidnA/view?usp=sharing)|
 
 #### BibTeX
     @InProceedings{Umer_2020_ECCVW,
@@ -48,12 +48,12 @@ python test_srrescgan.py
 ## SRResCycGAN Architecture
 #### Overall Representative diagram
 <p align="center">
-  <img height="150" src="figs/srrescycgan.png">
+  <img height="300" src="figs/srrescycgan.png">
 </p>
 
 ## Quantitative Results
 <p align="center">
-  <img height="200" src="figs/res_quant_comparison.png">
+  <img height="300" src="figs/res_quant_comparison.png">
 </p>
 
 #### The AIM2020 Real Image SR Challenge Results (x4)
@@ -85,24 +85,24 @@ python test_srrescgan.py
 ### DIV2K Validation-set (100 images)
 Here are the SR resutls comparison of our method on the DIV2K validation-set images.
 <p align="center">
-  <img height="200" src="figs/div2k_res_val.png">
+  <img height="400" src="figs/div2k_res_val.png">
 </p>
 
 ### Real-Image SR Challenge dataset images ([Track-3](https://data.vision.ee.ethz.ch/cvl/aim20/))
 #### Validation-set
 You can download all the SR resutls of our method on the AIM 2020 Real-Image SR validation-set from the Google Drive: [SRResCycGAN](https://drive.google.com/file/d/1Y-co6-hazt6h9i07sulOka7j0Yeej4lc/view?usp=sharing).
 <p align="center">
-  <img height="200" src="figs/res_rwsr_val1.png">
+  <img height="300" src="figs/res_rwsr_val1.png">
 </p>
 <p align="center">
-  <img height="200" src="figs/res_rwsr_val2.png">
+  <img height="300" src="figs/res_rwsr_val2.png">
 </p>
 
 #### Test-set
 You can download all the SR resutls of our method on the AIM 2020 Real-Image SR test-set from the Google Drive: [SRResCycGAN](https://drive.google.com/file/d/1VjpxyK7yiD995FCdpbUeTpSv_oiWJTwD/view?usp=sharing).
 <p align="center">
-  <img height="200" src="figs/res_rwsr_test1.png">
+  <img height="300" src="figs/res_rwsr_test1.png">
 </p>
 <p align="center">
-  <img height="200" src="figs/res_rwsr_test2.png">
+  <img height="300" src="figs/res_rwsr_test2.png">
 </p>
