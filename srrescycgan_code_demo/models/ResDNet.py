@@ -41,7 +41,9 @@ class BasicBlock(nn.Module):
 
 
 class ResDNet(nn.Module):
-
+    """
+    source link: https://github.com/cig-skoltech/deep_demosaick/blob/master/residual_model_resdnet.py
+    """
     def __init__(self, depth, color=True, weightnorm=True):
         self.inplanes = 64
         super(ResDNet, self).__init__()
