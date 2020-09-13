@@ -52,6 +52,8 @@ python test_srrescgan.py
 </p>
 
 ## Quantitative Results
+The x4 SR quantitative results comparison of our method with others over the DIV2K validation-set (100 images). The best performance is shown in **red** and the second best
+performance is shown in **blue**.
 <p align="center">
   <img height="250" src="figs/res_quant_comparison.png">
 </p>
