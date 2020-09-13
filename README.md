@@ -17,12 +17,12 @@ Recent deep learning based single image super-resolution (SISR) methods mostly t
 
 #### BibTeX
     @InProceedings{Umer_2020_ECCVW,
-        author = {Rao Muhammad Umer, Christian Micheloni},
-        title = {Deep Cyclic Generative Adversarial Residual Convolutional Networks for Real Image Super-Resolution},
-        booktitle = {European Conference on Computer Vision (ECCV) Workshops},
-        month = {August},
-        year = {2020}
-        }
+                   author = {Muhammad Umer, Rao and Micheloni, Christian},
+                   title = {Deep Cyclic Generative Adversarial Residual Convolutional Networks for Real Image Super-Resolution},
+                   booktitle = {Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
+                   month = {August},
+                   year = {2020}
+                  }
 
 ## Quick Test
 #### Dependencies
