@@ -5,7 +5,7 @@ An official PyTorch implementation of the [SRResCycGAN](https://github.com/RaoUm
 Recent deep learning based single image super-resolution (SISR) methods mostly train their models in a clean data domain where the low-resolution (LR) and the high-resolution (HR) images come from noise-free settings (same domain) due to the bicubic down-sampling assumption. However, such degradation process is not available in real-world settings. We consider a deep cyclic network structure to maintain the domain consistency between the LR and HR data distributions, which is inspired by the recent success of CycleGAN in the image-to-image translation applications. We propose the Super-Resolution Residual Cyclic Generative Adversarial Network (SRResCycGAN) by training with a generative adversarial network (GAN) framework for the LR to HR domain translation in an end-to-end manner. We demonstrate our proposed approach in the quantitative and qualitative experiments that generalize well to the real image super-resolution and it is easy to deploy for the mobile/embedded devices. In addition, our SR results on the AIM 2020 Real Image SR Challenge datasets demonstrate that the proposed SR approach achieves comparable results as the other state-of-art methods.
 
 #### Video Demo
-[SRResCycGAN]( https://youtu.be/QD3yhDpG4Lo)
+[![Video](https://img.youtube.com/vi/QD3yhDpG4Lo/hqdefault.jpg)](https://youtu.be/QD3yhDpG4Lo)
 
 #### Pre-trained Models
 | Datasets|[SRResCycGAN](https://github.com/RaoUmer/SRResCycGAN)|
