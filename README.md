@@ -25,23 +25,26 @@ Recent deep learning based single image super-resolution (SISR) methods mostly t
                   }
 
 ## Quick Test
+
+This model can be run on arbitrary images with a Docker image hosted on Replicate: https://beta.replicate.ai/RaoUmer/SRResCycGAN. Below are instructions for how to run the model without Docker:
+
 #### Dependencies
 - [Python 3.7](https://www.anaconda.com/distribution/) (version >= 3.0)
 - [PyTorch >= 1.0](https://pytorch.org/) (CUDA version >= 8.0 if installing with CUDA.)
 - Python packages:  `pip install numpy opencv-python`
 
 #### Test models
-1. Clone this github repository as the following commands: 
+1. Clone this github repository as the following commands:
 ```
 git clone https://github.com/RaoUmer/SRResCycGAN
 cd SRResCycGAN
 cd srrescycgan_code_demo
 ```
-2. Place your own **low-resolution images** in the `./srrescycgan_code_demo/LR` folder. (There are two sample images i.e. LR_006 and LR_014). 
+2. Place your own **low-resolution images** in the `./srrescycgan_code_demo/LR` folder. (There are two sample images i.e. LR_006 and LR_014).
 3. Download the pretrained models from **Pre-trained Models** section. Place the models in `./srrescycgan_code_demo/trained_nets_x4`.
 4. Run the test. You can config in the `test_srrescycgan.py`.
 ```
-python test_srrescgan.py       
+python test_srrescgan.py
 ```
 5. The results are in the `./srrescycgan_code_demo/sr_results_x4` folder.
 
