@@ -70,62 +70,69 @@ def crop_forward(model, x, sf, shave=10, min_size=100000, bic=None):
     output[:, :, h_half:h, w_half:w] \
         = sr_list[3][:, :, (h_size - h + h_half):h_size, (w_size - w + w_half):w_size]
         
+
     return output
 
-model_path = 'trained_nets_x4/srrescycgan.pth'  
-device = torch.device('cuda')  # if you want to run on CPU, change 'cuda' -> cpu
-# device = torch.device('cpu')
-test_img_folder = 'LR/*'
-scale_factor = 4
-use_chop = True
 
-# loading model
-resdnet = ResDNet(depth=5)
-model = SRResDNet(resdnet, scale=4)
-model.load_state_dict(torch.load(model_path), strict=True)
-model.eval()
-model = model.to(device)
+def main():
+    model_path = 'trained_nets_x4/srrescycgan.pth'
+    device = torch.device('cuda')  # if you want to run on CPU, change 'cuda' -> cpu
+    # device = torch.device('cpu')
+    test_img_folder = 'LR/*'
+    scale_factor = 4
+    use_chop = True
 
-print('Model path {:s}. \nTesting...'.format(model_path))
+    # loading model
+    resdnet = ResDNet(depth=5)
+    model = SRResDNet(resdnet, scale=4)
+    model.load_state_dict(torch.load(model_path), strict=True)
+    model.eval()
+    model = model.to(device)
 
-test_results = OrderedDict()
-test_results['time'] = []
-idx = 0
-start = torch.cuda.Event(enable_timing=True)
-end = torch.cuda.Event(enable_timing=True)
-for path_lr in glob.glob(test_img_folder):
-    idx += 1
-    base = osp.splitext(osp.basename(path_lr))[0]
-    print('Img:', idx, base)
-    # read images: LR
-    img_lr = cv2.imread(path_lr, cv2.IMREAD_COLOR)
-    img_LR = torch.from_numpy(np.transpose(img_lr[:, :, [2, 1, 0]], (2, 0, 1))).float()
-    img_LR = img_LR.unsqueeze(0)
-    img_LR = img_LR.to(device)
-    #print('img_LR:', img_LR.shape, img_LR.min(), img_LR.max())
-    
-    start.record()
-    with torch.no_grad():
-        if use_chop:
-            output_SR = crop_forward(model, img_LR, sf=scale_factor)
-        else:
-            output_SR = model(img_LR)
-    end.record()
-    torch.cuda.synchronize()
-    end_time = start.elapsed_time(end)
-    test_results['time'].append(end_time)  # milliseconds
-    output_sr = output_SR.data.squeeze().float().cpu().clamp_(0, 255).numpy()
-    output_sr = np.transpose(output_sr[[2, 1, 0], :, :], (1, 2, 0))
-    #print('output:', output.shape, output.min(), output.max())
+    print('Model path {:s}. \nTesting...'.format(model_path))
 
-    print('{:->4d}--> {:>10s}, time: {:.4f} miliseconds.'.format(idx, base, end_time))
-    
-    # save images            
-    cv2.imwrite('sr_results_x4/{:s}.png'.format(base), output_sr)
-    
-    del img_LR, img_lr
-    del  output_SR, output_sr
-    torch.cuda.empty_cache()
+    test_results = OrderedDict()
+    test_results['time'] = []
+    idx = 0
+    start = torch.cuda.Event(enable_timing=True)
+    end = torch.cuda.Event(enable_timing=True)
+    for path_lr in glob.glob(test_img_folder):
+        idx += 1
+        base = osp.splitext(osp.basename(path_lr))[0]
+        print('Img:', idx, base)
+        # read images: LR
+        img_lr = cv2.imread(path_lr, cv2.IMREAD_COLOR)
+        img_LR = torch.from_numpy(np.transpose(img_lr[:, :, [2, 1, 0]], (2, 0, 1))).float()
+        img_LR = img_LR.unsqueeze(0)
+        img_LR = img_LR.to(device)
+        #print('img_LR:', img_LR.shape, img_LR.min(), img_LR.max())
 
-avg_time = sum(test_results['time']) / len(test_results['time']) / 1000.0
-print('Avg. Time:{:.4f} seconds.'.format(avg_time))
+        start.record()
+        with torch.no_grad():
+            if use_chop:
+                output_SR = crop_forward(model, img_LR, sf=scale_factor)
+            else:
+                output_SR = model(img_LR)
+        end.record()
+        torch.cuda.synchronize()
+        end_time = start.elapsed_time(end)
+        test_results['time'].append(end_time)  # milliseconds
+        output_sr = output_SR.data.squeeze().float().cpu().clamp_(0, 255).numpy()
+        output_sr = np.transpose(output_sr[[2, 1, 0], :, :], (1, 2, 0))
+        #print('output:', output.shape, output.min(), output.max())
+
+        print('{:->4d}--> {:>10s}, time: {:.4f} miliseconds.'.format(idx, base, end_time))
+
+        # save images
+        cv2.imwrite('sr_results_x4/{:s}.png'.format(base), output_sr)
+
+        del img_LR, img_lr
+        del  output_SR, output_sr
+        torch.cuda.empty_cache()
+
+    avg_time = sum(test_results['time']) / len(test_results['time']) / 1000.0
+    print('Avg. Time:{:.4f} seconds.'.format(avg_time))
+
+
+if __name__ == '__main__':
+    main()
