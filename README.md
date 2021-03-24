@@ -35,6 +35,9 @@ This model can be run on arbitrary images with a Docker image hosted on Replicat
 - [PyTorch >= 1.0](https://pytorch.org/) (CUDA version >= 8.0 if installing with CUDA.)
 - Python packages:  `pip install numpy opencv-python`
 
+#### Train models
+- The SR training code is based on the [SRResCGAN](https://github.com/RaoUmer/SRResCGAN/tree/master/training_codes).
+
 #### Test models
 1. Clone this github repository as the following commands:
 ```
